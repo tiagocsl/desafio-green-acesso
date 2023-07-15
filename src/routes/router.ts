@@ -1,11 +1,12 @@
 import { IRouter, Router } from 'express';
 
-import configureBilletRouter from './billet.route';
+import configureBilletRouter from './Billet.route';
+import { BilletUsecases } from '@core_usecases/Billet.usecase';
 
-const configureRouter = (): IRouter => {
+const configureRouter = (billetUsecases: BilletUsecases): IRouter => {
     const router: IRouter = Router();
 
-    router.use('/billet', configureBilletRouter());
+    router.use('/billet', configureBilletRouter(billetUsecases));
 
     return router;
 };
