@@ -1,4 +1,4 @@
-import { Lot } from '@core_entities/Lot.entity';
+import { Lot } from 'core/entities/Lot.entity';
 import { ILotRepository } from '@core_repositories/Lot.repository';
 
 export class LottUsecases {

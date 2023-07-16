@@ -14,10 +14,13 @@
         "outDir": "./dist",
         "baseUrl": "./src",
         "paths": {
-            "@core_entities/*": ["entities/*"],
-            "@core_interfaces/*": ["interfaces/*"],
-            "@core_usecases/*": ["usecases/*"],
-            "@core_repositories/*": ["repositories/*"],
+            "@core_entities/*": ["core/entities/*"],
+            "@core_interfaces/*": ["core/interfaces/*"],
+            "@core_usecases/*": ["core/usecases/*"],
+            "@core_repositories/*": ["core/repositories/*"],
+            "@infra_middlewares/*": ["infra/middlewares/*"],
+            "@infra_controllers/*": ["infra/controllers/*"],
+            "@infra_databases/*": ["infra/databases/*"],
             "@utils/*": ["utils/*"]
         }
     },

@@ -1,11 +1,11 @@
 import { EntitySchema } from 'typeorm';
 
-import { Lot } from '@core_entities/Lot.entity';
+import { Billet } from 'core/entities/Billet.entity';
 
-export const PlaceSchema = new EntitySchema<Lot>({
-    name: 'Lot',
-    tableName: 'Lot',
-    target: Lot,
+export const PlaceSchema = new EntitySchema<Billet>({
+    name: 'Billet',
+    tableName: 'Billet',
+    target: Billet,
     columns: {
         id: {
             type: 'int',
@@ -14,8 +14,20 @@ export const PlaceSchema = new EntitySchema<Lot>({
             nullable: false,
             generated: 'increment',
         },
-        lotNumber: {
-            type: 'int',
+        residentName: {
+            type: 'varchar',
+            nullable: false,
+        },
+        lotId: {
+            type: 'varchar',
+            nullable: false,
+        },
+        value: {
+            type: 'varchar',
+            nullable: false,
+        },
+        billetCode: {
+            type: 'varchar',
             nullable: false,
         },
         active: {

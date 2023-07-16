@@ -3,7 +3,7 @@ import fs from 'fs';
 import { IRouter, Request, Response, Router } from 'express';
 import StatusCode from 'http-status-codes';
 
-import { multerConfig } from '../middlewares/multer.middle';
+import { multerConfig } from '@core_middlewares/multer.middle';
 import { getCSVText, getPDFText } from '@utils/Buffer-parsers.util';
 import { BilletUsecases } from '@core_usecases/Billet.usecase';
 

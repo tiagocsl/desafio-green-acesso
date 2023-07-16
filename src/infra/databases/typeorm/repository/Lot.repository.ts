@@ -1,7 +1,7 @@
 import { Repository } from 'typeorm';
 
 import { AppDataSource } from '../Datasource';
-import { Lot } from '@core_entities/Lot.entity';
+import { Lot } from 'core/entities/Lot.entity';
 import { ILot } from '@core_interfaces/Lot.interface';
 import { ILotRepository } from '@core_repositories/Lot.repository';
 

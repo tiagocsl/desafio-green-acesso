@@ -1,4 +1,4 @@
-import { Billet } from '@core_entities/Billet.entity';
+import { Billet } from 'core/entities/Billet.entity';
 import {
     IBillet,
     IBilletProps,
