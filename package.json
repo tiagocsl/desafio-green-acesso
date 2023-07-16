@@ -6,7 +6,8 @@
     "scripts": {
         "test": "vitest",
         "dev": "nodemon -r tsconfig-paths/register",
-        "build": "sucrase ./src -d ./outDir --transforms typescript && tscpaths -p tsconfig.json -s ./src -o ./outDir"
+        "start": "node dist/server.js",
+        "build": "sucrase ./src -d ./dist --transforms typescript && tscpaths -p tsconfig.json -s ./src -o ./outDir"
     },
     "author": "Tiago Castro de Souza Lima",
     "license": "UNLICENSED",
