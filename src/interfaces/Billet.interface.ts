@@ -4,6 +4,7 @@ export interface IBillet {
     lotId: number;
     value: number;
     billetCode: string;
+    active: boolean;
     createdAt: Date;
     updatedAt: Date;
 }

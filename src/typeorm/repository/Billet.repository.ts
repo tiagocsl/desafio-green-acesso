@@ -20,6 +20,7 @@ export class BilletTypeormRepository implements IBilletRepository {
                 value: billet.value,
                 createdAt: billet.createdAt,
                 updatedAt: billet.updatedAt,
+                active: true,
             });
             return insertedBillet;
         } catch (error) {

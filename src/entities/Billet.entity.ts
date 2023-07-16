@@ -1,22 +1,24 @@
 import { IBillet, IBilletProps } from '@core_interfaces/Billet.interface';
 
 export class Billet {
-    public id: number;
-    public residentName: string;
-    public lotId: number;
-    public value: number;
-    public billetCode: string;
-    public createdAt: Date;
-    public updatedAt: Date;
+    private _id: number;
+    private _residentName: string;
+    private _lotId: number;
+    private _value: number;
+    private _billetCode: string;
+    private _active: boolean;
+    private _createdAt: Date;
+    private _updatedAt: Date;
 
     constructor(props: IBillet) {
-        this.id = props.id;
-        this.residentName = props.residentName;
-        this.lotId = props.lotId;
-        this.value = props.value;
-        this.billetCode = props.billetCode;
-        this.createdAt = props.createdAt;
-        this.updatedAt = props.updatedAt;
+        this._id = props.id;
+        this._residentName = props.residentName;
+        this._lotId = props.lotId;
+        this._value = props.value;
+        this._billetCode = props.billetCode;
+        this._active = props.active;
+        this._createdAt = props.createdAt;
+        this._updatedAt = props.updatedAt;
     }
 
     static create(billetProps: IBilletProps) {
@@ -24,61 +26,79 @@ export class Billet {
         return new Billet({
             ...billetProps,
             id: 0,
+            active: true,
             createdAt: date,
             updatedAt: date,
         });
     }
 
-    public get Id(): string {
-        return this.residentName;
+    public get id(): number {
+        return this._id;
     }
 
-    private set Id(idNumber: number) {
-        this.id = idNumber;
-        this.updatedAt = new Date();
+    private set id(value: number) {
+        this._id = value;
+        this._updatedAt = new Date();
     }
 
-    public get ResidentName(): string {
-        return this.residentName;
+    public get residentName(): string {
+        return this._residentName;
     }
 
-    public set ResidentName(value: string) {
-        this.residentName = value;
-        this.updatedAt = new Date();
+    public set residentName(value: string) {
+        this._residentName = value;
+        this._updatedAt = new Date();
     }
 
-    public get LotId(): number {
-        return this.lotId;
+    public get lotId(): number {
+        return this._lotId;
     }
 
-    public set LotId(value: number) {
-        this.lotId = value;
-        this.updatedAt = new Date();
+    public set lotId(value: number) {
+        this._lotId = value;
+        this._updatedAt = new Date();
     }
 
-    public get Value(): number {
-        return this.value;
+    public get value(): number {
+        return this._value;
     }
 
-    public set Value(value: number) {
-        this.value = value;
-        this.updatedAt = new Date();
+    public set value(value: number) {
+        this._value = value;
+        this._updatedAt = new Date();
     }
 
-    public get BilletCode(): string {
-        return this.billetCode;
+    public get billetCode(): string {
+        return this._billetCode;
     }
 
-    public set BilletCode(value: string) {
-        this.billetCode = value;
-        this.updatedAt = new Date();
+    public set billetCode(value: string) {
+        this._billetCode = value;
+        this._updatedAt = new Date();
     }
 
-    public get CreatedAt(): Date {
-        return this.createdAt;
+    public get active(): boolean {
+        return this._active;
     }
 
-    public get UpdatedAt(): Date {
-        return this.updatedAt;
+    public set active(value: boolean) {
+        this._active = value;
+        this._updatedAt = new Date();
+    }
+
+    public get createdAt(): Date {
+        return this._createdAt;
+    }
+
+    public set createdAt(value: Date) {
+        this._createdAt = value;
+    }
+
+    public get updatedAt(): Date {
+        return this._updatedAt;
+    }
+
+    public set updatedAt(value: Date) {
+        this._updatedAt = value;
     }
 }

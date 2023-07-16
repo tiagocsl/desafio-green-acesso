@@ -3,6 +3,8 @@ import configureRouter from './routes/router';
 import { BilletUsecases } from '@core_usecases/Billet.usecase';
 import { BilletTypeormRepository } from 'typeorm/repository/Billet.repository';
 import { AppDataSource } from './typeorm/Datasource';
+import { LotTypeormRepository } from 'typeorm/repository/Lot.repository';
+import { LottUsecases } from '@core_usecases/Lot.usecase';
 
 const app = express();
 
@@ -14,8 +16,11 @@ AppDataSource.initialize()
         console.error('Error during Data Source initialization:', err);
     });
 
+const lotRepositoryImpl = new LotTypeormRepository();
+const lottUsecases = new LottUsecases(lotRepositoryImpl);
+
 const billetRepositoryImpl = new BilletTypeormRepository();
-const billetUsecases = new BilletUsecases(billetRepositoryImpl);
+const billetUsecases = new BilletUsecases(billetRepositoryImpl, lottUsecases);
 
 app.use(configureRouter(billetUsecases));
 

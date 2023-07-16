@@ -6,9 +6,13 @@ import {
     ISaveNewBilletsResponse,
 } from '@core_interfaces/Billet.interface';
 import { IBilletRepository } from '@core_repositories/Billet.repository';
+import { LottUsecases } from './Lot.usecase';
 
 export class BilletUsecases {
-    constructor(private billetRepository: IBilletRepository) {}
+    constructor(
+        private billetRepository: IBilletRepository,
+        private lotUsecases: LottUsecases
+    ) {}
 
     async saveBilletData(
         multipleBilletsProps: IReceivedBillet[]
@@ -28,9 +32,14 @@ export class BilletUsecases {
                 continue;
             }
 
+            const lotId =
+                await this.lotUsecases.verifyIfLotExistsAndRegisterOrReturnId(
+                    billetProps.lotNumber
+                );
+
             const billet = Billet.create({
                 ...billetProps,
-                lotId: billetProps.lotNumber,
+                lotId: lotId,
             });
 
             const newBillet = await this.billetRepository.saveBilletData(
